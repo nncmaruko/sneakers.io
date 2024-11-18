@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+@media screen and (max-width:600px) {
+    nav.header-bar .site-title img {
+        margin: 20px 16px;
+    }
+
+    .header-bar .toggle-btn {
+        margin: 25px 16px;
+    }
+
+    .contact-grid {
+        flex-direction: column;
+    }
+
+    .contact-info {
+        width: 100%;
+    }
+
+    .send-form {
+        width: 100%;
+    }
+}

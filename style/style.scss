@@ -1,0 +1,391 @@
+@charset "UTF-8";
+
+@mixin form {
+    background: #fff;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+$bgcolor: #121212;
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: Hiragino Kaku Gothic ProN, Noto Sans, Noto Serif;
+    font-size: 1.4rem;
+}
+
+
+nav.header-bar {
+    display: flex;
+    justify-content: space-between;
+    // max-width: 1240px;
+    width: 100%;
+
+    // height: 80px;
+    // background-color: antiquewhite;
+    // opacity: 0.8;
+    .site-title img {
+        width: 170px;
+        height: 40px;
+        margin: 20px 40px;
+    }
+}
+
+img {
+    width: 100%;
+}
+
+
+/* ーーーーーーtoggleボタンーーーーーー
+ーーーーーーーーーーーーーーーーーー */
+.toggle-btn {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    margin: 25px 40px;
+    z-index: 20;
+    cursor: pointer;
+
+    span {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 30px;
+        height: 2px;
+        border-radius: 2px;
+        background-color: #000000;
+        transition: all .5s;
+    }
+}
+
+.toggle-btn span:nth-child(1) {
+    top: 4px;
+}
+
+.toggle-btn span:nth-child(2) {
+    top: 14px;
+}
+
+.toggle-btn span:nth-child(3) {
+    top: 24px;
+}
+
+
+// 開いた時 // 
+.open .toggle-btn span {
+    background-color: #fff;
+}
+
+.open .toggle-btn span:nth-child(1) {
+    -webkit-transform: translateY(10px) rotate(-315deg);
+    transform: translateY(10px) rotate(-315deg);
+}
+
+.open .toggle-btn span:nth-child(2) {
+    opacity: 0;
+}
+
+.open .toggle-btn span:nth-child(3) {
+    -webkit-transform: translateY(-10px) rotate(315deg);
+    transform: translateY(-10px) rotate(315deg);
+}
+
+.nav-area {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    background-color: #000000;
+    width: 300px;
+    height: 100vh;
+    z-index: 20;
+    padding: 60px 25px;
+    transition: all .5s;
+    opacity: 0;
+}
+
+.open .nav-area {
+    opacity: 1;
+    left: 0px;
+}
+
+.nav-area ul li {
+    width: 250px;
+    color: #fff;
+    border-bottom: 1px solid #fff;
+    padding: 20px 0;
+
+    &:nth-child(1) {
+        border-top: 1px solid #fff;
+    }
+}
+
+.nav-area .sub-nav {
+    padding-top: 55px;
+
+    li {
+        border-bottom: none;
+        padding: 10px 0;
+
+        &:nth-child(1) {
+            border-top: none;
+        }
+    }
+}
+
+/* ーーーーーー Mask ーーーーーー
+ーーーーーーーーーーーーーーーーーー */
+.mask {
+    display: none;
+    transition: all 0.5s;
+}
+
+/* ーーーーーー 開いた時 ーーーーーー
+ーーーーーーーーーーーーーーーーーー */
+
+.open .mask {
+    display: block;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #000000;
+    z-index: 10;
+    cursor: pointer;
+}
+
+/* ーーーーーー Main ーーーーーー
+ーーーーーーーーーーーーーーーーーー */
+
+main video {
+    width: 100%;
+    max-height: 600px;
+    object-fit: cover;
+}
+
+section .pickup {
+    width: 100%;
+
+}
+
+.section-title {
+    margin: 100px 0 48px;
+    font-size: 3.6rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* ーーーーーー PICKUP ーーーーーー
+ーーーーーーーーーーーーーーーーーー */
+.slider {
+    visibility: hidden;
+
+    .slide img {
+        padding: 0 30px;
+    }
+}
+
+.slider.slick-initialized {
+    visibility: visible;
+}
+
+
+
+/* ーーーーーー Feature ーーーーーー
+ーーーーーーーーーーーーーーーーーー */
+.feature {
+    max-width: 1240px;
+    padding: 100px 16px 50px 16px;
+    margin: -100px auto 10px auto;
+}
+
+.feature .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 26px;
+    background-color: #fff;
+
+    .grid-item {
+        box-shadow: 0 0 8px #ccc;
+    }
+
+}
+
+.grid-item a:hover {
+    opacity: 0.6;
+}
+
+.grid-item .content {
+    padding: 30px 30px;
+
+    .category {
+        font-size: 1.2rem;
+        padding-bottom: 20px;
+    }
+}
+
+.grid-item .content .text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+
+.date {
+    font-size: 1.2rem;
+    text-align: right;
+}
+
+/*
+フェード表示させる要素に使用するためのクラス
+*/
+
+.fadein {
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: all 1s;
+}
+
+/* ーーーーーー CONTACT ーーーーーー
+ーーーーーーーーーーーーーーーーーー */
+.contact {
+    // background-color: pink;
+    background-color: #121212;
+    padding: 50px;
+    color: #fff;
+
+    .section-title {
+        margin: 0px 0 48px;
+    }
+}
+
+.contact-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+.contact-grid {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact-info {
+    width: 45%;
+
+    h3 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+
+    p {
+        margin-bottom: 15px;
+        line-height: 2.3rem;
+    }
+}
+
+.contact-info .aboutus {
+    margin-bottom: 40px;
+}
+
+.company-name {
+    font-size: 2rem;
+}
+
+.address-name {
+    font-size: 1.6rem;
+}
+
+.send-form {
+    width: 45%;
+}
+
+.send-form dt label {
+    width: 100%;
+    text-align: left;
+    font-size: 1.4rem;
+    line-height: 2.5rem;
+}
+
+.send-form dd input {
+    @include form;
+    height: 40px;
+}
+
+.send-form dd textarea {
+    @include form;
+    height: 68px;
+}
+
+.send-form .button {
+    width: 200px;
+    height: 50px;
+    box-sizing: border-box;
+    border: 1px solid #fff;
+    padding: 12px 0;
+    cursor: pointer;
+
+    input {
+        width: 100%;
+        color: #fff;
+        font-size: 1.4rem;
+        align-items: center;
+    }
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+/* ーーーーーー FOOTER ーーーーーー
+ーーーーーーーーーーーーーーーーーー */
+
+footer {
+    background-color: $bgcolor;
+
+    p {
+        padding: 10px 0;
+        text-align: center;
+        font-size: 1rem;
+        color: #fff;
+    }
+}
+
+@media screen and (max-width:600px) {
+    main video {
+        width: 100%;
+        height: 100vh;
+        object-fit: cover;
+    }
+
+    nav.header-bar .site-title img {
+        margin: 20px 16px;
+    }
+
+    .header-bar .toggle-btn {
+        margin: 25px 16px;
+    }
+
+    .section-title {
+        font-size: 2.4rem;
+    }
+
+    .contact-grid {
+        flex-direction: column;
+    }
+
+    .contact-info {
+        width: 100%;
+    }
+
+    .send-form {
+        width: 100%;
+    }
+
+    .send-form .button {
+        width: 100%;
+    }
+}
